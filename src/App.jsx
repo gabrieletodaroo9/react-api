@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import axios from 'axios'
+import Header from './components/Header'
+import Main from './components/Main'
 
 export default function App() {
 
@@ -20,33 +22,8 @@ export default function App() {
 
   return (
     <>
-      <header className='bg-dark'>
-        <h1 className='text-white text-center py-4'>ACTORPEDIA</h1>
-      </header>
-
-      <main>
-        <div className="container py-5">
-          <div className="row g-5">
-            {actorsList.map(actor => (
-              <div className="col-12 col-md-6 col-lg-4 col-xl-3">
-                <div className="card h-100">
-                  <img src={actor.image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title fw-bold">{actor.name}</h5>
-                    <p className="card-text">{actor.biography}</p>
-                  </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item"><strong>Birth year: </strong>{actor.birth_year}</li>
-                    <li className="list-group-item"><strong>Nationality: </strong>{actor.nationality}</li>
-                    <li className="list-group-item"><strong>Awards: </strong>{actor.awards.join(", ")}</li>
-                  </ul>
-                </div>
-              </div>
-            ))
-            }
-          </div>
-        </div>
-      </main>
+      <Header />
+      <Main actorsList={actorsList} />
     </>
   )
 }
