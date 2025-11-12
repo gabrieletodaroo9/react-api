@@ -10,6 +10,7 @@ export default function App() {
   const endpointActress = "https://lanciweb.github.io/demo/api/actresses/"
 
   const [actorsList, setActorList] = useState([])
+  const [actressesList, setActressesList] = useState([])
 
   function getDataActor() {
     axios.get(endpointActor)
@@ -17,13 +18,19 @@ export default function App() {
       ;
   }
 
+  function getDataActress() {
+    axios.get(endpointActress)
+      .then(res => setActressesList(res.data))
+  }
+
   useEffect(getDataActor, [])
 
+  useEffect(getDataActress, [])
 
   return (
     <>
       <Header />
-      <Main actorsList={actorsList} />
+      <Main actorsList={actorsList} actressesList={actressesList} />
     </>
   )
 }

@@ -1,17 +1,12 @@
-import ActorCard from "./ActorCard"
+import ActorsList from "./ActorsList"
+import ActressesList from "./ActressesList"
 
-export default function Main({ actorsList }) {
+export default function Main({ actorsList, actressesList }) {
 
     return (
         <main>
-            <div className="container py-5">
-                <div className="row g-5">
-                    {actorsList.map(actor => (
-                        <ActorCard actor={actor} />
-                    ))
-                    }
-                </div>
-            </div>
+            <ActorsList actorsList={actorsList} />
+            <ActressesList actressesList={actressesList} />
         </main>
     )
 }
