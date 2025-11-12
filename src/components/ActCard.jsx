@@ -12,6 +12,7 @@ export default function ActCard({ act }) {
                     <li className="list-group-item"><strong>Birth year: </strong>{act.birth_year}</li>
                     <li className="list-group-item"><strong>Nationality: </strong>{act.nationality}</li>
                     <li className="list-group-item"><strong>Awards: </strong>{Array.isArray(act.awards) ? act.awards.join(", ") : act.awards}</li>
+                    <li className="list-group-item"><strong>Most famous movie: </strong>{!act.most_famous_movies ? act.known_for.join(", ") : act.most_famous_movies.join(", ")}</li>
                 </ul>
             </div>
         </div>
