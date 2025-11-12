@@ -1,12 +1,10 @@
-import ActorsList from "./ActorsList"
-import ActressesList from "./ActressesList"
+import UniqueArrayAct from "./UniqueArrayAct"
 
-export default function Main({ actorsList, actressesList }) {
+export default function Main({ uniqueArray }) {
 
     return (
         <main>
-            <ActorsList actorsList={actorsList} />
-            <ActressesList actressesList={actressesList} />
+            <UniqueArrayAct uniqueArray={uniqueArray} />
         </main>
     )
 }

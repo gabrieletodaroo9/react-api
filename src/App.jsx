@@ -11,26 +11,28 @@ export default function App() {
 
   const [actorsList, setActorList] = useState([])
   const [actressesList, setActressesList] = useState([])
+  const [uniqueArray, setUniqueArray] = useState([])
 
-  function getDataActor() {
+  function getData() {
     axios.get(endpointActor)
       .then(res => setActorList(res.data))
-      ;
-  }
 
-  function getDataActress() {
     axios.get(endpointActress)
-      .then(res => setActressesList(res.data))
+      .then(res => { setActressesList(res.data) })
   }
 
-  useEffect(getDataActor, [])
+  useEffect(getData, [])
 
-  useEffect(getDataActress, [])
+  useEffect(() => {
+    const concatArray = [...actorsList, ...actressesList]
+    setUniqueArray(concatArray)
+  }, [actorsList, actressesList])
+
 
   return (
     <>
       <Header />
-      <Main actorsList={actorsList} actressesList={actressesList} />
+      <Main uniqueArray={uniqueArray} />
     </>
   )
 }
